@@ -18,7 +18,7 @@ app.use(express.json())
 
 const port = process.env.PORT
 
-app.use("/api/products",productRoutes)
+app.use("/api/products",productRoutes) 
 
 const initDB = async () => {
     try {

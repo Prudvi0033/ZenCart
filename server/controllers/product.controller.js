@@ -48,7 +48,7 @@ export const getProduct = async (req, res) => {
         console.log("Error in getting product",error);
     }
 }
-
+ 
 export const updateProduct = async (req, res) => {
     const id = req.params.id
     const {name, price, image} = req.body
@@ -77,7 +77,7 @@ export const deleteProduct = async (req, res) => {
 
     try {
         const deletedProduct = await sql `
-            DELETE FROM prodcuts
+            DELETE FROM products
             WHERE id = ${id}
             RETURNING *
         ` 
