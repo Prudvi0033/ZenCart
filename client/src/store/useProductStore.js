@@ -11,7 +11,8 @@ export const useProductStore = create((set, get) => ({
         set({productsLoading : true})
         try {
            const response = await axios.get(`${BASE_URL}/products`)
-           set({products : response.data}) 
+           set({products : response.data.prods}) 
+           
         } catch (error) {
             console.log("Error in fetching products", error);
         } finally {
