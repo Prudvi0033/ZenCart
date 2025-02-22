@@ -16,7 +16,7 @@ app.use(helmet())
 app.use(morgan("dev"))
 app.use(express.json())
 
-const port = process.env.PORT
+const port = process.env.PORT 
 
 app.use("/api/products",productRoutes) 
 

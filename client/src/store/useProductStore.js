@@ -7,6 +7,33 @@ const BASE_URL = "http://localhost:8001/api"
 export const useProductStore = create((set, get) => ({
     products : [],
     productsLoading : false,
+
+    formData : {
+        name : "",
+        price : "",
+        image : ""
+    },
+
+    setFormData : ((formData) => set({formData})),
+    resetFormData : () => set({formData : {name : "", price : "", image : ""}}),
+
+    addProduct : async (e) => {
+        e.preventDefault()
+        set({productsLoading : true})
+        try {
+            const {formData} = get()
+           await axios.post(`${BASE_URL}/products`,formData) 
+           await get().fetchProducts()
+           await get().resetFormData()
+
+           toast.success("Product Added")
+        } catch (error) {
+            console.log("Error in adding product",error);
+            toast.error("Error in adding product");
+        } finally{
+            set({productsLoading : false})
+        }
+    },
     
     fetchProducts : async () => {
         set({productsLoading : true})
