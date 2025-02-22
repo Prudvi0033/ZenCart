@@ -6,7 +6,7 @@ export const getProducts = async (req, res) => {
             SELECT * FROM products
         `
 
-        res.json({products})
+        res.json({products}) 
     } catch (error) {
         console.log("Error in getting all products");
         
