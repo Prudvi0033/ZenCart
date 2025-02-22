@@ -25,19 +25,21 @@ const Homepage = () => {
 
       <div>
         {productsLoading ? (
-          <Loader2 className='animate-spin' size={40}/>
+          <div className='h-screen flex items-center justify-center'>
+            <Loader2 className='animate-spin' size={40}/>
+          </div>
         ) : (
           <div>
             {products.length > 0 ? 
             (
               products.map(product => (
-                <div key={product.id} className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+                <div key={product.id} className='grid grid-cols-1 md:grid-cols-2 mb-4 lg:grid-cols-3'>
                   <ProductCard key={product.id} product={product} />
                 </div>
               ))
             ) : 
             (
-              <div className='text-4xl text-pretty'>No Products Found</div>
+              <div className='text-4xl text-center text-primary'>No Products Found</div>
             )
           }
           </div>
